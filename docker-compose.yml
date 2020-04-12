@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  controller:
+    container_name: ansicon
+    image: shahjalalh/ubuntu-ssh:1.0
+    volumes: 
+      - "./ansibleworkspace:/home/workspace"
+      - "./etc/ansible/ansible.cfg:/etc/ansible/ansible.cfg"
+    networks:
+      - net
+  target1:
+    container_name: target1
+    image: shahjalalh/ubuntu-ssh:1.0
+    networks:
+      - net
+  target2:
+    container_name: target2
+    image: shahjalalh/ubuntu-ssh:1.0
+    networks: 
+      - net
+  target3:
+    container_name: target3
+    image: shahjalalh/ubuntu-ssh:1.0
+    networks: 
+      - net
+networks:
+  net:
